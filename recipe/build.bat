@@ -103,20 +103,19 @@ if %ERRORLEVEL% neq 0 exit 1
 cmake --install build --prefix "%LIBRARY_PREFIX%"
 if %ERRORLEVEL% neq 0 exit 1
 
-REM Missing header needed by SCIP for unistd.h WIN port
-copy "%SRC_DIR%\scipoptsuite\zimpl\src\WIN\getopt.h" "%LIBRARY_PREFIX%\include\zimpl\"
-if %ERRORLEVEL% neq 0 exit 1
 goto :EOF
 
 
 :scip
-REM Zimpl packages a unistd.h port that scip includes directly
+REM Zimpl packages a unistd.h/getopt.h port that scip includes directly
 if not exist "%SRC_DIR%\compat_include" mkdir "%SRC_DIR%\compat_include"
-copy "%LIBRARY_PREFIX%\include\zimpl\getopt.h" "%SRC_DIR%\compat_include\"
 if %ERRORLEVEL% neq 0 exit 1
-copy "%LIBRARY_PREFIX%\include\zimpl\unistd.h" "%SRC_DIR%\compat_include\"
+copy "%SRC_DIR%\scipoptsuite\zimpl\src\WIN\getopt.h" "%SRC_DIR%\compat_include\"
+if %ERRORLEVEL% neq 0 exit 1
+copy "%SRC_DIR%\scipoptsuite\zimpl\src\WIN\unistd.h" "%SRC_DIR%\compat_include\"
 if %ERRORLEVEL% neq 0 exit 1
 set "CMAKE_ARGS=%CMAKE_ARGS% -DCMAKE_C_FLAGS=/I%SRC_DIR%\compat_include"
+if %ERRORLEVEL% neq 0 exit 1
 
 cmake -B build -S "%SRC_DIR%\scipoptsuite\scip" -G Ninja ^
     %CMAKE_ARGS% ^
