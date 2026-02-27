@@ -218,7 +218,6 @@ outputs:
         - ipopt
         - gmp
         - mpfr
-        - ${{ "readline" if unix }}
         - ${{ pin_subpackage("libpapilo-static", exact=True) }}
         - ${{ pin_subpackage("soplex", exact=True) }}
         - ${{ pin_subpackage("zimpl", exact=True) }}

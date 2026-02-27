@@ -72,12 +72,14 @@ elif [[ $PKG_NAME == "scip" ]]; then
 
   # TODO: other options to investigate are
   #   - a LPS build matrix including HIGHS
-  #   - a SYM build matrix including Bliss
+  # We disable readline to ensure no copyleft issues
+  # LAPACK is only useful for IPOPT=OFF.
+  # SYM="snauty" is currently considered to be best on average.
   cmake -B build/ -S "${SRC_DIR}/scipoptsuite/scip" -G Ninja \
     ${CMAKE_ARGS} \
     -D ZLIB=ON \
     -D GMP=ON \
-    -D READLINE=ON \
+    -D READLINE=OFF \
     -D STATIC_GMP=OFF \
     -D ZIMPL=ON \
     -D ZIMPL_DIR="${PREFIX}" \
@@ -102,8 +104,9 @@ elif [[ $PKG_NAME == "gcg" ]]; then
   export CXXFLAGS="${CXXFLAGS} -isystem ${PWD}/scipoptsuite/scip/src/"
   export CMAKE_ARGS="${CMAKE_ARGS} -D SCIPOptSuite_SOURCE_DIR=${SRC_DIR}/scipoptsuite"
 
-  # TODO: other options to investigate are
-  # OPENMP, GSL, HMETIS and a SYM build matrix
+  # TODO: other options to investigate are OPENMP
+  # SYM="snauty" is currently considered to be best on average.
+  # We disable GSL and HMetis to ensure no copyleft issues
   cmake -B build/ -S "${SRC_DIR}/scipoptsuite/gcg" -G Ninja \
     ${CMAKE_ARGS} \
     -D SCIP_DIR="${PREFIX}" \
