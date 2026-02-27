@@ -71,9 +71,8 @@ elif [[ $PKG_NAME == "zimpl" ]]; then
 elif [[ $PKG_NAME == "scip" ]]; then
 
   # TODO: other options to investigate are
-  # AMPL, IPOPT, LAPACK, WORHP, CONOPT,
-  # a LPS build matrix including HIGHS
-  # a SYM build matrix including Bliss
+  #   - a LPS build matrix including HIGHS
+  #   - a SYM build matrix including Bliss
   cmake -B build/ -S "${SRC_DIR}/scipoptsuite/scip" -G Ninja \
     ${CMAKE_ARGS} \
     -D ZLIB=ON \
@@ -87,6 +86,8 @@ elif [[ $PKG_NAME == "scip" ]]; then
     -D LPS="spx" \
     -D SOPLEX_DIR="${PREFIX}" \
     -D SYM="snauty" \
+    -D IPOPT=ON \
+    -D AMPL=ON \
     -D THREADSAFE=ON \
     -D LTO=ON \
     -D BUILD_TESTING=OFF
