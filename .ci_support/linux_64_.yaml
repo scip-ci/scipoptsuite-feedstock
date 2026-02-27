@@ -28,10 +28,10 @@ libblas:
 - 3.9.* *netlib
 libboost_devel:
 - '1.88'
-libboost_headers:
-- '1.88'
 mpfr:
 - '4'
+readline:
+- '8'
 target_platform:
 - linux-64
 tbb_devel:
