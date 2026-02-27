@@ -21,12 +21,14 @@ source:
     sha256: 60632b89935c0fd8f5d244dcc25f36504a82b1f68eb847f6e5c0c2c5d5936f39
     target_directory: scipoptsuite
     patches:
-      # header-only does not work with current boost due to https://github.com/boostorg/serialization/issues/232
       - if: win
-        then: 0001-disable-boost-no-lib.patch
-      # conda-forge::jansson for windows contains only a static debug lib of jansson; make gcg use this one
-      - if: win
-        then: 0002-allow-jansson-debug-lib.patch
+        then:
+          # header-only does not work with current boost due to
+          # https://github.com/boostorg/serialization/issues/232
+          - 0001-disable-boost-no-lib.patch
+          # conda-forge::jansson for windows contains only a static debug lib of jansson;
+          # make gcg use this one
+          - 0002-allow-jansson-debug-lib.patch
 
 build:
   number: 1
@@ -91,7 +93,7 @@ outputs:
         - ${{ "libblas" if papilo_with_lusol }}
         - ${{ pin_subpackage("scip", exact=True) }}
       run:
-        # Backward compatibility, `papilo` pacakge will get all assets
+        # Backward compatibility, `papilo` package will get all assets
         - ${{ pin_subpackage("libpapilo-static", exact=True) }}
       ignore_run_exports:
         from_package:
@@ -102,6 +104,8 @@ outputs:
           strict: true
           bin:
             - papilo
+      - script:
+        - papilo --version
 
   - package:
       name: soplex
