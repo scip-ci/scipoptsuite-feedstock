@@ -144,11 +144,15 @@ outputs:
             - ${{ "Library/" if win }}share/licenses/soplex/**/*
             - etc/conda/test-files/soplex/**/*
       - script:
-          file: run_soplex_test.${{ "sh" if unix else "bat" }}
+        - soplex --version
+      - script:
+          file: run_soplex_test.nu
         files:
           source:
             - scipoptsuite/soplex/src/example.cpp
         requirements:
+          build:
+            - nushell
           run:
             - ${{ compiler("cxx") }}
             - cmake
@@ -255,11 +259,13 @@ outputs:
       - script:
         - scip --version
       - script:
-          file: run_scip_test.${{ "sh" if unix else "bat" }}
+          file: run_scip_test.nu
         files:
           source:
             - scipoptsuite/scip/examples/Queens
         requirements:
+          build:
+            - nushell
           run:
             - ${{ compiler("cxx") }}
             - cmake
