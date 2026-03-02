@@ -1,5 +1,5 @@
-About scipoptsuite-feedstock
-============================
+About gcg-feedstock
+===================
 
 Feedstock license: [BSD-3-Clause](https://github.com/conda-forge/scipoptsuite-feedstock/blob/main/LICENSE.txt)
 
@@ -75,31 +75,32 @@ Current release info
 | Name | Downloads | Version | Platforms |
 | --- | --- | --- | --- |
 | [![Conda Recipe](https://img.shields.io/badge/recipe-gcg-green.svg)](https://anaconda.org/conda-forge/gcg) | [![Conda Downloads](https://img.shields.io/conda/dn/conda-forge/gcg.svg)](https://anaconda.org/conda-forge/gcg) | [![Conda Version](https://img.shields.io/conda/vn/conda-forge/gcg.svg)](https://anaconda.org/conda-forge/gcg) | [![Conda Platforms](https://img.shields.io/conda/pn/conda-forge/gcg.svg)](https://anaconda.org/conda-forge/gcg) |
+| [![Conda Recipe](https://img.shields.io/badge/recipe-libpapilo--static-green.svg)](https://anaconda.org/conda-forge/libpapilo-static) | [![Conda Downloads](https://img.shields.io/conda/dn/conda-forge/libpapilo-static.svg)](https://anaconda.org/conda-forge/libpapilo-static) | [![Conda Version](https://img.shields.io/conda/vn/conda-forge/libpapilo-static.svg)](https://anaconda.org/conda-forge/libpapilo-static) | [![Conda Platforms](https://img.shields.io/conda/pn/conda-forge/libpapilo-static.svg)](https://anaconda.org/conda-forge/libpapilo-static) |
 | [![Conda Recipe](https://img.shields.io/badge/recipe-papilo-green.svg)](https://anaconda.org/conda-forge/papilo) | [![Conda Downloads](https://img.shields.io/conda/dn/conda-forge/papilo.svg)](https://anaconda.org/conda-forge/papilo) | [![Conda Version](https://img.shields.io/conda/vn/conda-forge/papilo.svg)](https://anaconda.org/conda-forge/papilo) | [![Conda Platforms](https://img.shields.io/conda/pn/conda-forge/papilo.svg)](https://anaconda.org/conda-forge/papilo) |
 | [![Conda Recipe](https://img.shields.io/badge/recipe-scip-green.svg)](https://anaconda.org/conda-forge/scip) | [![Conda Downloads](https://img.shields.io/conda/dn/conda-forge/scip.svg)](https://anaconda.org/conda-forge/scip) | [![Conda Version](https://img.shields.io/conda/vn/conda-forge/scip.svg)](https://anaconda.org/conda-forge/scip) | [![Conda Platforms](https://img.shields.io/conda/pn/conda-forge/scip.svg)](https://anaconda.org/conda-forge/scip) |
 | [![Conda Recipe](https://img.shields.io/badge/recipe-soplex-green.svg)](https://anaconda.org/conda-forge/soplex) | [![Conda Downloads](https://img.shields.io/conda/dn/conda-forge/soplex.svg)](https://anaconda.org/conda-forge/soplex) | [![Conda Version](https://img.shields.io/conda/vn/conda-forge/soplex.svg)](https://anaconda.org/conda-forge/soplex) | [![Conda Platforms](https://img.shields.io/conda/pn/conda-forge/soplex.svg)](https://anaconda.org/conda-forge/soplex) |
 | [![Conda Recipe](https://img.shields.io/badge/recipe-zimpl-green.svg)](https://anaconda.org/conda-forge/zimpl) | [![Conda Downloads](https://img.shields.io/conda/dn/conda-forge/zimpl.svg)](https://anaconda.org/conda-forge/zimpl) | [![Conda Version](https://img.shields.io/conda/vn/conda-forge/zimpl.svg)](https://anaconda.org/conda-forge/zimpl) | [![Conda Platforms](https://img.shields.io/conda/pn/conda-forge/zimpl.svg)](https://anaconda.org/conda-forge/zimpl) |
 
-Installing scipoptsuite
-=======================
+Installing gcg
+==============
 
-Installing `scipoptsuite` from the `conda-forge` channel can be achieved by adding `conda-forge` to your channels with:
+Installing `gcg` from the `conda-forge` channel can be achieved by adding `conda-forge` to your channels with:
 
 ```
 conda config --add channels conda-forge
 conda config --set channel_priority strict
 ```
 
-Once the `conda-forge` channel has been enabled, `gcg, papilo, scip, soplex, zimpl` can be installed with `conda`:
+Once the `conda-forge` channel has been enabled, `gcg, libpapilo-static, papilo, scip, soplex, zimpl` can be installed with `conda`:
 
 ```
-conda install gcg papilo scip soplex zimpl
+conda install gcg libpapilo-static papilo scip soplex zimpl
 ```
 
 or with `mamba`:
 
 ```
-mamba install gcg papilo scip soplex zimpl
+mamba install gcg libpapilo-static papilo scip soplex zimpl
 ```
 
 It is possible to list all of the versions of `gcg` available on your platform with `conda`:
@@ -169,17 +170,17 @@ Terminology
                   produce the finished article (built conda distributions)
 
 
-Updating scipoptsuite-feedstock
-===============================
+Updating gcg-feedstock
+======================
 
-If you would like to improve the scipoptsuite recipe or build a new
+If you would like to improve the gcg recipe or build a new
 package version, please fork this repository and submit a PR. Upon submission,
 your changes will be run on the appropriate platforms to give the reviewer an
 opportunity to confirm that the changes result in a successful build. Once
 merged, the recipe will be re-built and uploaded automatically to the
 `conda-forge` channel, whereupon the built conda packages will be available for
 everybody to install and use from the `conda-forge` channel.
-Note that all branches in the conda-forge/scipoptsuite-feedstock are
+Note that all branches in the conda-forge/gcg-feedstock are
 immediately built and any created packages are uploaded, so PRs should be based
 on branches in forks, and branches in the main repository should only be used to
 build distinct package versions.
