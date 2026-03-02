@@ -145,7 +145,9 @@ goto :EOF
 
 :gcg
 rem snauty is vendored by scip; point to scip's source for headers
-set "CXXFLAGS=%CXXFLAGS% /I%CD%\scipoptsuite\scip\src"
+rem -openmp:llvm is required for atomic read/update pragmas used by gcg
+set "CXXFLAGS=%CXXFLAGS% /I%CD%\scipoptsuite\scip\src -openmp:llvm"
+set "CFLAGS=%CFLAGS% -openmp:llvm"
 set "CMAKE_ARGS=%CMAKE_ARGS% -DSCIPOptSuite_SOURCE_DIR=%SRC_DIR%\scipoptsuite"
 
 cmake -B build -S "%SRC_DIR%\scipoptsuite\gcg" -G Ninja ^
