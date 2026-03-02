@@ -287,7 +287,10 @@ outputs:
         - ${{ "gnuplot" if unix }}
         - jansson
         - highs
-        # - nauty
+        - if: osx
+          then: llvm-openmp
+        - if: linux
+          then: libgomp
         - ${{ pin_subpackage("scip", exact=True) }}
         # From transitive dependencies
         - ${{ pin_subpackage("libpapilo-static", exact=True) }}

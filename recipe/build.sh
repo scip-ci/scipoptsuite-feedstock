@@ -104,7 +104,6 @@ elif [[ $PKG_NAME == "gcg" ]]; then
   export CXXFLAGS="${CXXFLAGS} -isystem ${PWD}/scipoptsuite/scip/src/"
   export CMAKE_ARGS="${CMAKE_ARGS} -D SCIPOptSuite_SOURCE_DIR=${SRC_DIR}/scipoptsuite"
 
-  # TODO: other options to investigate are OPENMP
   # SYM="snauty" is currently considered to be best on average.
   # We disable GSL and HMetis to ensure no copyleft issues
   cmake -B build/ -S "${SRC_DIR}/scipoptsuite/gcg" -G Ninja \
@@ -112,6 +111,7 @@ elif [[ $PKG_NAME == "gcg" ]]; then
     -D SCIP_DIR="${PREFIX}" \
     -D PAPILO_DIR="${PREFIX}" \
     -D GMP=ON \
+    -D OPENMP=ON \
     -D STATIC_GMP=OFF \
     -D CLIQUER=ON \
     -D JANSSON=ON \

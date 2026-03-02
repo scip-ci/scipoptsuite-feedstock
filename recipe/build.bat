@@ -153,6 +153,7 @@ cmake -B build -S "%SRC_DIR%\scipoptsuite\gcg" -G Ninja ^
     -D SCIP_DIR="%LIBRARY_PREFIX%" ^
     -D PAPILO_DIR="%LIBRARY_PREFIX%" ^
     -D GMP=ON ^
+    -D OPENMP=ON ^
     -D STATIC_GMP=OFF ^
     -D CLIQUER=OFF ^
     -D JANSSON=ON ^
