@@ -198,6 +198,7 @@ outputs:
                 - zimpl-pic.lib
           include:
             - zimpl/**/*
+            - ${{ "WIN/*" if win }}
           files:
             - ${{ "Library/" if win }}lib/cmake/zimpl/**/*
             - ${{ "Library/" if win }}share/licenses/zimpl/**/*
