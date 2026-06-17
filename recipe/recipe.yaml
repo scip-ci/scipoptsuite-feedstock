@@ -32,6 +32,8 @@ source:
 
 build:
   number: 1
+  script:
+    file: build
 
 outputs:
 
