@@ -27,13 +27,13 @@ ipopt:
 libblas:
 - 3.9.* *netlib
 libboost_devel:
-- '1.88'
+- '1.90'
 mpfr:
 - '4'
 target_platform:
 - linux-64
 tbb_devel:
-- '2022'
+- '2023'
 zip_keys:
 - - c_compiler_version
   - cxx_compiler_version
