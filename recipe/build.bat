@@ -20,7 +20,7 @@ cmake -B build -S "%SRC_DIR%\scipoptsuite\papilo" -G Ninja ^
     %CMAKE_ARGS% ^
     -D PAPILO_NO_BINARIES=ON ^
     -D SCIP=OFF ^
-    -D TBB=ON ^
+    -D TBB=OFF ^
     -D TBB_DOWNLOAD=OFF ^
     -D INSTALL_TBB=OFF ^
     -D GMP=ON ^

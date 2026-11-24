@@ -18,14 +18,13 @@ if [[ $PKG_NAME == *papilo* ]]; then
   # Two step build, we only add papilo executable dependencies later on to
   # break the circular dependency between papilo and scip.
   if [[ $PKG_NAME == "libpapilo-static" ]]; then
-    export CMAKE_ARGS="${CMAKE_ARGS} -D PAPILO_NO_BINARIES=ON -D SCIP=OFF"
+    export CMAKE_ARGS="${CMAKE_ARGS} -D PAPILO_NO_BINARIES=ON -D SCIP=OFF -D TBB=OFF"
   else
-    export CMAKE_ARGS="${CMAKE_ARGS} -D PAPILO_NO_BINARIES=OFF -D SCIP=ON -D HIGHS=ON"
+    export CMAKE_ARGS="${CMAKE_ARGS} -D PAPILO_NO_BINARIES=OFF -D SCIP=ON -D HIGHS=ON -D TBB=ON"
   fi
 
   cmake -B build/ -S "${SRC_DIR}/scipoptsuite/papilo" -G Ninja \
     ${CMAKE_ARGS} \
-    -D TBB=ON \
     -D TBB_DOWNLOAD=OFF \
     -D INSTALL_TBB=OFF \
     -D GMP=ON \

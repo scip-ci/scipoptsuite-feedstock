@@ -50,12 +50,12 @@ outputs:
         - cmake
         - ninja
       host:
-        - tbb-devel
+        #- tbb-devel
         - gmp
         - libboost-devel
         - ${{ "libblas" if papilo_with_lusol }}
-      run:
-        - ${{ pin_compatible("tbb-devel", exact=True) }}
+      #run:
+      #  - ${{ pin_compatible("tbb-devel", exact=True) }}
       ignore_run_exports:
         from_package:
           # Required, but not used when building library
@@ -229,7 +229,7 @@ outputs:
         - ${{ pin_subpackage("soplex", exact=True) }}
         - ${{ pin_subpackage("zimpl", exact=True) }}
         # From transitive dependencies
-        - tbb-devel
+        #- tbb-devel
         - libboost-devel
         - ${{ "libblas" if papilo_with_lusol }}
         - ${{ "pcre2" if win }}
@@ -294,7 +294,7 @@ outputs:
         - ${{ pin_subpackage("scip", exact=True) }}
         # From transitive dependencies
         - ${{ pin_subpackage("libpapilo-static", exact=True) }}
-        - tbb-devel
+        #- tbb-devel
         - libboost-devel
       run:
         - ${{ pin_subpackage("scip") }}
